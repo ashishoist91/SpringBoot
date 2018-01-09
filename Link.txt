@@ -1,0 +1,3 @@
+http://javasampleapproach.com/spring-framework/spring-boot/create-springboot-xml-rest-service
+https://javapapers.com/java/java-restful-web-services-with-json-and-jersey/
+http://websystique.com/spring-boot/spring-boot-rest-api-example/
