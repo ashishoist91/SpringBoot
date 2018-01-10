@@ -4,3 +4,4 @@ http://websystique.com/spring-boot/spring-boot-rest-api-example/
 https://java2blog.com/spring-restful-web-services-xml-example/
 https://dzone.com/articles/using-the-spring-requestmapping-annotation
 https://www.boraji.com/spring-4-mvc-requestparam-annotation-example
+https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/
