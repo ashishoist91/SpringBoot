@@ -2,3 +2,4 @@ http://javasampleapproach.com/spring-framework/spring-boot/create-springboot-xml
 https://javapapers.com/java/java-restful-web-services-with-json-and-jersey/
 http://websystique.com/spring-boot/spring-boot-rest-api-example/
 https://java2blog.com/spring-restful-web-services-xml-example/
+https://dzone.com/articles/using-the-spring-requestmapping-annotation
