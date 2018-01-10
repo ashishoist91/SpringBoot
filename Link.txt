@@ -7,4 +7,7 @@ https://www.boraji.com/spring-4-mvc-requestparam-annotation-example
 https://reversecoding.net/spring-mvc-requestparam-binding-request-parameters/
 https://www.infoq.com/articles/springmvc_jsx-rs
 http://www.baeldung.com/spring-uricomponentsbuilder
+http://www.baeldung.com/spring-hateoas-tutorial
 https://exampledriven.wordpress.com/2015/11/13/spring-hateoas-example/
+https://dzone.com/articles/applying-hateoas-to-a-rest-api-with-spring-boot
+https://spring.io/guides/gs/rest-hateoas/
