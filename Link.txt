@@ -13,3 +13,5 @@ https://dzone.com/articles/applying-hateoas-to-a-rest-api-with-spring-boot
 https://spring.io/guides/gs/rest-hateoas/
 https://stormpath.com/blog/jax-rs-vs-spring-rest-endpoints -- Cheat Sheet
 http://www.restapitutorial.com/lessons/httpmethods.html
+https://www.infoq.com/articles/springmvc_jsx-rs
+https://blog.novatec-gmbh.de/page-links-hateoas-spring-boot/
