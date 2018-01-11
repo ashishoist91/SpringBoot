@@ -24,3 +24,4 @@ https://www.toptal.com/java/spring-boot-rest-api-error-handling
 http://www.baeldung.com/exception-handling-for-rest-with-spring
 http://fruzenshtein.com/spring-rest-exception-handling-2/
 https://mydevgeek.com/spring-boot-rest-web-service-part-3-exception-handling-validation-using-controlleradvice-valid-custom-annotations/
+https://www.javacodegeeks.com/2013/12/spring-rest-exception-handling-vol-1.html
