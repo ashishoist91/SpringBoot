@@ -15,3 +15,11 @@ https://stormpath.com/blog/jax-rs-vs-spring-rest-endpoints -- Cheat Sheet
 http://www.restapitutorial.com/lessons/httpmethods.html
 https://www.infoq.com/articles/springmvc_jsx-rs
 https://blog.novatec-gmbh.de/page-links-hateoas-spring-boot/
+----------------Exception -------------
+http://www.jcombat.com/spring/exception-handling-in-spring-restful-web-service
+https://www.dineshonjava.com/exception-handling-for-rest-with-spring-using-exceptionhandler-and-controlleradvice-annotation/
+http://javainsimpleway.com/spring-rest-service-exception-handling/
+https://dzone.com/articles/exception-handling-spring-rest
+https://www.toptal.com/java/spring-boot-rest-api-error-handling
+http://www.baeldung.com/exception-handling-for-rest-with-spring
+
