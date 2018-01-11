@@ -12,3 +12,4 @@ https://exampledriven.wordpress.com/2015/11/13/spring-hateoas-example/
 https://dzone.com/articles/applying-hateoas-to-a-rest-api-with-spring-boot
 https://spring.io/guides/gs/rest-hateoas/
 https://stormpath.com/blog/jax-rs-vs-spring-rest-endpoints -- Cheat Sheet
+http://www.restapitutorial.com/lessons/httpmethods.html
