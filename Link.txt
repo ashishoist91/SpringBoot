@@ -34,8 +34,11 @@ https://www.petrikainulainen.net/programming/spring-framework/spring-from-the-tr
 https://lmonkiewicz.com/programming/get-noticed-2017/spring-boot-rest-request-validation/
 http://www.baeldung.com/spring-data-rest-validators
 https://www.leveluplunch.com/java/tutorials/017-validate-spring-rest-webservice-request/
------------------Security ----------------
+-----------------Security Basic ----------------
 https://www.codesandnotes.be/2014/10/31/restful-authentication-using-spring-security-on-spring-boot-and-jquery-as-a-web-client/
 http://blog.napagoda.com/2017/10/secure-spring-boot-rest-api-using-basic.html
 https://www.sothawo.com/2015/07/build-a-spring-boot-rest-service-with-basic-authentication-for-several-users/
 http://websystique.com/spring-security/secure-spring-rest-api-using-basic-authentication/
+--------------------------Oauth2--------
+https://jugbd.org/2017/09/19/implementing-oauth2-spring-boot-spring-security/
+http://www.swisspush.org/security/2016/10/17/oauth2-in-depth-introduction-for-enterprises
