@@ -25,3 +25,12 @@ http://www.baeldung.com/exception-handling-for-rest-with-spring
 http://fruzenshtein.com/spring-rest-exception-handling-2/
 https://mydevgeek.com/spring-boot-rest-web-service-part-3-exception-handling-validation-using-controlleradvice-valid-custom-annotations/
 https://www.javacodegeeks.com/2013/12/spring-rest-exception-handling-vol-1.html
+--------------------Validator----------
+http://www.jeejava.com/spring-service-layer-bean-validation/
+https://sdqali.in/blog/2015/12/04/validating-requestparams-and-pathvariables-in-spring-mvc/
+https://www.slideshare.net/MohammadSabirKhan/spring-rest-request-validation
+http://beanvalidation.org/2.0/
+https://www.petrikainulainen.net/programming/spring-framework/spring-from-the-trenches-adding-validation-to-a-rest-api/
+https://lmonkiewicz.com/programming/get-noticed-2017/spring-boot-rest-request-validation/
+http://www.baeldung.com/spring-data-rest-validators
+https://www.leveluplunch.com/java/tutorials/017-validate-spring-rest-webservice-request/
