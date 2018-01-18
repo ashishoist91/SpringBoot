@@ -44,3 +44,7 @@ https://jugbd.org/2017/09/19/implementing-oauth2-spring-boot-spring-security/
 http://www.swisspush.org/security/2016/10/17/oauth2-in-depth-introduction-for-enterprises
 ---------------------------
 https://www.genuitec.com/spring-frameworkrestcontroller-vs-controller/
+-------------------Mockito-------------
+http://www.vogella.com/tutorials/Mockito/article.html
+https://dzone.com/refcardz/mockito
+https://dzone.com/articles/a-guide-to-mocking-with-mockito
