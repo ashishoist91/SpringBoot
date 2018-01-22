@@ -48,3 +48,5 @@ https://www.genuitec.com/spring-frameworkrestcontroller-vs-controller/
 http://www.vogella.com/tutorials/Mockito/article.html
 https://dzone.com/refcardz/mockito
 https://dzone.com/articles/a-guide-to-mocking-with-mockito
+-------------Application.Property-------------
+https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
