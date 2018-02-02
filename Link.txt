@@ -50,3 +50,6 @@ https://dzone.com/refcardz/mockito
 https://dzone.com/articles/a-guide-to-mocking-with-mockito
 -------------Application.Property-------------
 https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+------------JPA-------------
+http://www.baeldung.com/spring-data-repositories
+http://www.thejavageek.com/jpa-tutorials/
