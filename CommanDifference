@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter wr = new PrintWriter(System.out);
+        String firstInput = br.readLine();
+        String secondInput = br.readLine();
+
+        String firstInputArray[] = firstInput.split(" ");
+        String secondInputArray[] = secondInput.split(" ");
+        int n = Integer.parseInt(firstInputArray[0]);
+        int k = Integer.parseInt(firstInputArray[1]);
+        try{
+           if(secondInputArray.length != n){
+            throw new ArrayIndexOutOfBoundsException();
+            }
+            int[] integers = new int[n]; 
+            for (int i = 0; i < integers.length; i++){
+                integers[i] = Integer.parseInt(secondInputArray[i]); 
+            }
+            int out_ = noOfPairs(integers, k);
+             System.out.println(out_);
+        }catch(ArrayIndexOutOfBoundsException e){
+            
+            
+        } 
+        
+        
+
+         wr.close();
+         br.close();
+        
+        
+        
+
+    }
+    
+    static int noOfPairs(int []inputArray, int k){
+        int temporary, counter=0;
+	    int length=inputArray.length;
+
+
+	    Arrays.sort(inputArray);
+	    
+	    for(int i=0;i<length;i++){
+    	    temporary=inputArray[i];
+    	        for(int j=i+1;j<length;j++){
+    	            if(temporary-inputArray[j]==-k){
+    	                counter++;
+    	                break;
+    	            }
+    	        }
+	    }
+	    return counter;
+    }
+}
