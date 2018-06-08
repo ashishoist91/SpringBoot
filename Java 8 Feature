@@ -1,0 +1,646 @@
+Java 8 Features
+	Lambda Expressions
+	Funcational Interface(Used to call Lambda expression)
+	Default method in Interface(Declear concreate method)
+	Static method in Interfaces
+	Predicate (Funcational Interface)
+	Funcation (Funcational Interface)
+	Consumer (Funcational Interface)
+	Method Reference & Constructor Reference using :: Operator
+	Stream API (Bulk Operation on Collections)
+	Date & Time API (Joda API) (joda.org package)
+	
+	To Simplify Programming
+	To enbale Funcational Programming
+	TO enable Parallel Programming
+	
+	Lambda Expression
+		To enable Funcational Programming
+		Write more readble, maintainable & concise code
+		To use API very easily and effectively
+		To enable parallel programming
+		
+		It is anonymous function
+			not having name
+			not having modifier
+			not having any return type
+		-----------
+		Print Hello
+		Java
+		public void m1(){
+			sout("Hello");
+		}
+		
+		Lambda Version
+		() -> {sout("Hello");}		
+		*Note - If no of statement is less than 2 the {} is optional
+			
+		() -> sout("Hello");
+			
+		------------
+		Add two No
+		Java
+		public void add(int a, int b){
+			sout(a+b);
+		}
+		
+		Lambda Version
+		(int a,int b) ->{sout(a+b);}
+		
+		Compile can get type reference based on context(Type Infrence)
+		Type Infrence 
+		(a,b) -> sout(a+b);
+		--------------
+		Return length of String
+		Java
+		public int getLength(String s){
+			return s.length();
+		}
+		
+		Lambda Version
+		(String s) ->{return s.length();}
+		
+		Return statement is not required in Lambda expression
+		If Lambda expression has only one arg then no need to put ().  
+		s -> s.length();
+		---------------
+		
+		A Lambda expression can take any no of arg
+		If multiple parameter present then these parameters
+		should be seperated with ,
+		If Only one parameter available then () is optional
+		If body contain only one statement the curly craces are optional
+		If Lambda expression return something then we can remove return keyword.
+		Usally we can specified the type of parameter, if compiler guess the type
+		based on parameter then we can remove type[type inference]
+		
+	Funcational Interface (Single Abstract Method(SAM)
+		If interface contain only one abstract method then that interface know as FI.
+			Runnable
+			Callable
+			ActionListner
+			Comparable
+		Note: In Funcational Interface we can take n number of default method and static method
+		but only restriction on abstract method.
+		
+		To specified that a particluar interface as FI use below Annotation
+			@FuncationalInterface (Used by compiler at compilation time)
+		
+		@FuncationalInterface
+		interface MyInterface{
+			public void m1();
+			default void m2();
+			public static void m3();
+		}
+		If any FuncationalInterface contain more than one abstract method the compiler throws beow exception
+		CE: unexpected @FuncationalInterface annotation.
+		multiple non-overriding abstract method present in interface <interface name>
+		
+		If any FuncationalInterface not contining abstract methdhod then compiler will throws below exception
+		CE: unexpected @FuncationalInterface Annotation,
+		No abstract method found in interface <interface name>.
+		
+		FuncationalInterface WRT Inheritance
+		Case 1:
+			If an interface extends FuncationalInterface and child interface doesnot contain any abstract method
+			then child interface is always FuncationalInterface
+			
+			@FuncationalInterface
+			interface Interface1{
+				public void m1();
+				
+			}
+			@FuncationalInterface
+			interface Infrence2 extends Infrence1{
+			}
+		Case 2:
+			In the child interface, we can define exactly same parent interface abstract method.
+			@FuncationalInterface
+			interface Interface1{
+				public void m1();
+			}
+			@FuncationalInterface
+			interface Infrence2 extends Infrence1{
+				public void m1();
+			}
+		Case 3:
+			In the child interface we can't define any new abstract methods otherwise  we get CE.
+			@FuncationalInterface
+			interface Interface1{
+				public void m1();
+			}
+			@FuncationalInterface
+			interface Infrence2 extends Infrence1{
+				public void m2();
+			}
+		Case 4:
+			@FuncationalInterface
+			interface Interface1{
+				public void m1();
+			}
+			
+			interface Infrence2 extends Infrence1{
+				public void m2();
+			}
+			Valid Code
+			
+		Example
+			Ex1.
+			Without Lamdna Funcation
+			
+			interface Interface1{
+				public void m1();
+			}
+			class A implements Interface1{
+				public void m1(){
+					sout("Hi i am m1 method");
+				}
+			}
+			
+			class Main{
+				
+				psvm(String args[]){
+					Interface1 i = new A();
+					i.m1();
+				}
+			
+			}
+			
+			With Lambda Funcation
+			
+			
+			interface Interface1{
+				public void m1();
+			}
+			
+			class Main{
+				psvm(String args[]){
+					Interface1 i = () -> sout("m1 method implementation")
+					i.m1();
+				}
+			}
+			
+			Ex2.
+			Without Lamdna Funcation
+			
+			interface Interface1{
+				public void add(int a, int b);
+			}
+			class A implements Interface1{
+				public void add(){
+					sout("Addition :" + (a+b));
+				}
+			}
+			
+			class Main{
+				
+				psvm(String args[]){
+					Interface1 i = new A();
+					i.add(5,6);
+				}
+			
+			}
+			
+			With Lambda Funcation
+			
+			
+			interface Interface1{
+				public void add(int a, int b);
+			}
+			
+			class Main{
+				psvm(String args[]){
+					Interface1 i = (a,b) -> sout("Addition By Lambda Expression:" + (a+b));
+					i.add(5,6);
+					i.add(11,6);
+				}
+			}
+			
+			Ex3.
+			Without Lamdna Funcation
+			
+			interface Interface1{
+				public int getLength(String s);
+			}
+			class A implements Interface1{
+				public int getLength(String s){
+					return s.length();
+				}
+			}
+			
+			class Main{
+				
+				psvm(String args[]){
+					Interface1 i = new A();
+					sout(i.getLength("Ashish"));
+				}
+			
+			}
+			
+			With Lambda Funcation
+			
+			
+			interface Interface1{
+				public int getLength(String s);
+			}
+			
+			class Main{
+				psvm(String args[]){
+					Interface1 i = (s) -> s.length());
+					sout(i.getLength("Ashish"));
+				}
+			}
+			
+			Ex4. For Predefine FuncationalInterface
+			Without Lambda Funcation
+			class MyRunnable implements Runnable{
+				public void run(){
+				
+					for(int i=0;i<10 i++){
+						sout("Child Thread Count:" + i);
+					}
+				}
+			}
+			class MainThread{
+				psvm(){
+					Runnable r = new MyRunnable();
+					Thread t = new Thread(r);
+					t.start();
+					for(int i=0;i<10 i++){
+						sout("Main Thread Count:" + i);
+					}
+				}
+			}
+			
+			With Lambda Funcation
+			class MainThread{
+				psvm(){
+					Runnable r = () -> {
+						for(int i=0;i<10 i++){
+							sout("Child Thread Count:" + i);
+						}
+					}
+					Thread t = new Thread(r);
+					t.start();
+					for(int i=0;i<10 i++){
+						sout("Main Thread Count:" + i);
+					}
+				}
+			}
+			Q1. What is the advantage of @FuncationalInterface Annotation.
+			Ans.By using, its indicate interface is a FuncationalInterface and used for lambda expressio.
+					
+		Anonymous Inner Class VS Lambda Expression
+			Were ever anonymous class is there , there is a posibility of replacing with Lambda expression
+			Anonymous Inner Class
+				Runnable r = new Runnable(){
+					public void run(){
+					------
+					}
+				}
+			With Anonymous Inner Class
+			class MainThread{
+				psvm(){
+					Runnable r = new Runnable(){
+						public void run(){
+							sout("Child Thread Count:" + i);
+						}
+					};
+					Thread t = new Thread(r);
+					t.start();
+					for(int i=0;i<10 i++){
+						sout("Main Thread Count:" + i);
+					}
+				}
+			}	
+			
+			
+			With lambda expression
+			class MainThread{
+				psvm(){
+					-------------------
+					Runnable r = () -> {
+						for(int i=0;i<10 i++){
+							sout("Child Thread Count:" + i);
+						}
+					}
+					Thread t = new Thread(r);
+					
+					or 
+
+					Thread t = new Thread(() -> {
+						for(int i=0;i<10 i++){
+							sout("Child Thread Count:" + i);
+						}
+					});
+					-------------
+					t.start();
+					for(int i=0;i<10 i++){
+						sout("Main Thread Count:" + i);
+					}
+				}
+			}
+			* Anonymous Inner class that implements an interface which contain only one abstract method --> this concept is fulfill by Lambda expression.
+			Rest other Anonymous Inner class concept can;t implements using Lambda expression
+			
+			Inside Anonymous Inner class we can create instance variable.
+			Inside Anonymous Inncer class this keyword always refer current inner class object only.
+			Inside Anonymous inner class if we want to access outer class instance variable then use below syntax.
+				<Outer Class Name>.this.<Variable Name>
+			
+			Inside Lambda Expression it's not posible to create instance variable.
+			It's always refer as local variable for Lambda expression.
+			Inside Lambda Expression this keyword always refer current outer class object only.
+			
+			
+			Anonymous Inner Class									Lambda Expression
+		1. It is a class without name							It is a function without name(Anonymous Funcation)
+		2. It can extends abstract and concreate classes		It's can't extends abstract and concreate classes.
+		3. It can implements an interface that contains         It can implements an interface which contain single
+		   any no of abstract methods	                        abstract method (Funcational Interface)
+		4. Inside this we can declere instance variable.        We can only create local variable.
+		5. It can be instantiated								Cann't be.
+		6. Inside Anonymous Inncer class this keyword           Inside Lambda Expression this keyword always refer
+           always refer current inner class object only.        current outer class object only.
+		7. It's a best choice if we want to handle              It is best for interface with single abstract method.
+		   multiple methods.
+		8. For this seprate .class file will create             No .class file will create.
+     	   (Compilation Time)   
+		9. Mempry will be allocated on demand when ever,		It will reside in permanent memory of JVM(Method Area).
+		   we will creating object.
+		   
+		* If we are using any local variable of enlosing method inside Lambda expression. it will automatically converted into final.
+		  and if we are trying to change value of local variable of enlosing method , we will  get CE.
+		  
+	Default Method inside Interface
+		A set on concreate method which are allowed to declere inside interface called as Default Method inside Interface.
+		Syntax
+			interface MyInterface{
+				default void m1(){
+					sout("Default Method")
+				}
+			}
+			
+		If we are not satisfied with default implementation of default method we can override the defination of default method in child class.
+		
+		Default Method WRT Mutiple Inheritance
+			
+			Ex.
+				interface Left{
+					default void m1(){
+						sout("m1");
+					}
+				}
+				
+				interface Right{
+					default void m1(){
+						sout("m1");
+					}
+				}
+				
+				class Test implements Left,Right{
+				
+				}
+	        After compiling above code we will get CE:
+				class Test inherits unrelated defaults for m1()from type Left & Right
+				
+			This problem raise due to abmiguity problem of m1 method.
+			
+			If we provide own implementation for m1() then above CE will resolve
+			or if we want to call specific interface method then use below syntax in implementation class.
+				
+				class Test implements Left,Right{
+					public  void m1(){
+						//sout("m1");
+						<Interface Name>.super.<Method Name);
+					}
+				}
+			MRY1010
+			
+			Interface with Default Method 								Abstract Class
+		1.  Inside interface every variable is always public, static	Inside Abstract class we can declare instance variables,
+			& final , we can't declere instance variables				which are required to the child class.		
+		2.  Interface never talks about state of object.				Abstract class can talk about state of object.
+		3.  Inside interface we can;t decleare construtor				Inside abtract class we can declere construtor
+		4.  Inside interface we can't declare instance 	and				we can do it.
+			static block.
+		5.  Funcational interface with default method can refer			Not Posible
+			Lambda expression
+		6.	Inside interface we can't override Object class methpds.	We can do it
+		
+	Static Method inside Interface.
+		Just to define general purpose utility code we can use static method into interface.
+		Static method of interface are not available into implementation classes.
+		We can access static method of interface using Interface name not by implementation class object or Class name.
+			<InterfaceName>.<StaticMethodName>();
+		
+		Interface Static method WRT override
+			Overriding concept not applicable for static method of interface.
+			If you want to create same signature into child class then also it won't impact.
+			
+		* From Java 8 onward we can run Interface, beacuse we can add main method into interface also.	
+		
+		
+	Predicate
+		Predicate is a boolean valued function.
+		Version
+			java 1.8
+		Packages
+			java.util.function
+		It's a functional interface, abstract method "test"
+		
+		interface Predicate<T>{
+			boolean test(T t);
+		}
+		
+		Example:
+			public boolean test(Integer I){
+				if(I>10)
+					return true;
+				else 
+					return false;
+			}
+		
+			I -> I >10;
+			
+			Predicate conversion
+			
+			Predicate<Integer> p = I -> I>10;
+			sout(p.test(100));// ture
+		
+		Check Whether given collection is empty or not.
+			Predicate<Collection> p = c -> c.isEmpty();
+			sout(p.test(<Colllection>));
+
+		
+		9934228321
+		
+		Predicate Joining
+			It's a concept related to joining two or more than two predicate and reture single value.
+			
+			default Predicate<T> and(Predicate<? super T> other)
+				Returns a composed predicate that represents a short-circuiting logical AND of this predicate and another.
+		
+			default Predicate<T> negate()
+				Returns a predicate that represents the logical negation of this predicate.
+			default Predicate<T> or(Predicate<? super T> other)
+				Returns a composed predicate that represents a short-circuiting logical OR of this predicate and another.
+		
+			import java.util.function.Predicate;
+
+			public class PredicateJoin {
+
+				public static void main(String[] args) {
+					int []x = {0,10,15,20,25,30};
+					Predicate<Integer> p1 = i -> i>10;
+					Predicate<Integer> p2 = i -> i%2 == 0;
+					System.out.println("The NO > 10 are");
+					m1(p1,x);
+					System.out.println("The Even NO");
+					m1(p2,x);
+					System.out.println("The no not grater than 10");
+					m1(p1.negate(),x);
+					System.out.println("The no gratwer than 10 and even");
+					m1(p1.and(p2),x);
+					System.out.println("The no gratwer than 10 or even");
+					m1(p1.or(p2),x);
+				}
+				
+				public static void m1(Predicate<Integer> p, int[] x) {
+					
+					for(int x1:x) {
+						if(p.test(x1))
+							System.out.println(x1);
+					}
+				}
+
+			}
+		
+		
+	Function
+		Predicate always perform on some condition check and return true or false.
+		Funcation is same as Predicate but it's need not to reture boolean value , it's return any value.
+		
+		
+		Interface Function<T,R>{
+			//T - the type of the input to the function
+			//R - the type of the result of the function
+			
+			R	apply(T t);
+		
+		}
+		
+		//Length
+		Funcation<String, Integer> f = s -> s.length();
+		sout(f.apply("durga"));
+		
+		/Squre
+		Funcation<Integer, Integer> f = s -> s*s;
+		sout(f.apply(5));
+		
+		
+	Consumer
+		Predicate & Funcation interface returm some data after execution of there method.
+		But Consumer take only  input argument and consume it(perform action) but not return any value in return.
+		
+		@FunctionalInterface
+		public interface Consumer<T>{
+			void accept(T t);
+		}
+		
+	Supplier	
+		It's always return any value.
+		@FunctionalInterface
+		public interface Supplier<R>{
+			R get()
+		}
+		
+	Method Reference & Constructor Reference using :: Operator
+		In Java we can use :: operator for Method reference and Constructor Reference.
+		
+		Method reference mainly used for code reusability.
+		Example:
+		Using Lambda
+		
+		interface MyInterface{
+			public void m1();
+		}
+		class Test{
+		
+			main(){
+			
+			MyInterface i = () -> {
+							sysout("Hi");
+						};
+			i.m1();
+			}
+		}
+		
+		Using ::
+		
+		interface MyInterface{
+			public void m1();
+		}
+		class Test{
+			public static m2(){
+			
+				sout("Hi");
+			}
+			main(){
+			
+			MyInterface i = Test::m2;
+			i.m1();
+			}
+		}
+		
+		Note : Here we are giving the reference of m2 method to MyInterface and accessing using m1()
+		For the same it's manditory to have same set of input type parameters in both method.
+		Target Reference method either can be static or can be instance method.  
+		Syntax:
+			If Target method is static 
+				Class Name :: Method Name
+			
+			Instance			
+				ObjectRef::Method Name
+		
+		For FuncationalInterface We can either Lambda expression or Method Reference
+		
+	Constructor Reference
+		
+		Class Sample{
+			Sample(){
+				sout("Sample Obj");
+			}		
+		}
+		
+		interface Interface {
+			public Sample get();
+		}
+		
+		
+		Using Lambda
+		
+		class Test{
+		
+			psvm(String Args[]){
+			
+				Interface i = () -> {
+							Sample s = new Sample();
+							return s;
+				}
+				
+				Sample s1 = i.get();
+			}
+			
+		}
+		
+		Using Constructor Reference
+		
+		Class Test {
+			psvm(String args[]){
+			
+				Interface i = Sample::new;
+				sample s = i.get();
+			}
+		}
+	
