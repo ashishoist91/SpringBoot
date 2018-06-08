@@ -1,0 +1,23 @@
+Date & Time API (Joda API) (joda.org package)
+	
+	
+	This API was developed by joda.org team.
+	
+		import java.time //api
+		LocalDate date = LocalDate.now();
+		//Print current system Date
+		
+		LocalTime time = LocalTime.now();
+		//Current System Time
+		
+		LocalDateTime
+		
+		Period
+		Find a no of year , month and days b/w given two dates
+		LocalDate birthDay = LocalDate.of(1999,8,28);
+		LocalDate today = LocalDate.now();
+		Period p = Period.between(birthDay,today);
+		SOUT("Your age %d year, % month, %days", p.getYears(), p.getMonths(), p.getDays());
+		
+		Year
+		Zone
