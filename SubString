@@ -1,0 +1,63 @@
+import java.io.*;
+import java.util.*;
+
+
+public class TestClass {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter wr = new PrintWriter(System.out);
+         String S = br.readLine();
+
+         int out_ = SmallestSubString(S);
+         System.out.println(out_);
+
+         wr.close();
+         br.close();
+    }
+    static int SmallestSubString(String S){
+        
+        
+        int length = S.length();
+        int disCount = 0;
+        
+        boolean[] visited = new boolean[256];
+        Arrays.fill(visited,false);
+        for(int i=0;i<length;i++){
+            if(visited[S.charAt(i)] == false){
+                visited[S.charAt(i)] = true;
+                disCount++;
+            }
+        }
+        
+        int start = 0, startIndex = 1;
+        int minLength = Integer.MAX_VALUE;
+        int count = 0;
+        int currentCount[] = new int[256];
+        for(int j=0;j<length;j++){
+            currentCount[S.charAt(j)]++;
+            if (currentCount[S.charAt(j)] == 1 )
+                count++;
+            if (count == disCount)
+            {
+   
+                while (currentCount[S.charAt(start)] > 1)
+                {
+                    if (currentCount[S.charAt(start)] > 1)
+                        currentCount[S.charAt(start)]--;
+                    start++;
+                }
+                 
+                int len_window = j - start + 1;
+                if (minLength > len_window)
+                {
+                    minLength = len_window;
+                    startIndex = start;
+                }
+            }
+        }
+        String result = S.substring(startIndex, startIndex+minLength);
+        
+        return result.length();
+    
+    }
+}
