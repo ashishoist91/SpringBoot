@@ -53,3 +53,12 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/common-applicatio
 ------------JPA-------------
 http://www.baeldung.com/spring-data-repositories
 http://www.thejavageek.com/jpa-tutorials/
+-------------------------spring-boot-redis-cache----------
+https://www.journaldev.com/18141/spring-boot-redis-cache
+https://memorynotfound.com/spring-redis-cache-manager-example/
+https://dzone.com/articles/intro-to-redis-with-spring-boot
+https://www.concretepage.com/spring-boot/spring-boot-redis-cache
+http://michaelcgood.com/intro-redis-with-spring-boot/
+https://www.concretepage.com/spring-boot/spring-boot-redis-cache
+https://grokonez.com/spring-framework/spring-data/spring-data-redis-example-spring-boot-redis-example
+https://github.com/caseyscarborough/spring-redis-caching-example
