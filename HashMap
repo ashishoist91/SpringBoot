@@ -1,0 +1,28 @@
+I'll talk about the HashMap and TreeMap implementation in Java:
+
+HashMap -- implement basic map interface
+implemented by an array of buckets, each bucket is a LinkedList of entries
+running time of basic operations: put(), average O(1), worst case O(n), happens when the table is resized; get(), remove(), average O(1)
+not synchronized, to synchronize it: Map m = Collections.synchronizedMap(new HashMap(...));
+Iteration order of the map is unpredictable.
+TreeMap -- implement navigable map interface
+implemented by a red-black tree
+running time of basic operations: put(), get(), remove(), worst case O(lgn)
+not synchronized, to synchronize it: SortedMap m = Collections.synchronizedSortedMap(new TreeMap(...));
+provide ordered iteration. higherKey(), lowerKey() can be used to get the successor and predecessor of a given key.
+To sum, the biggest difference between HashMap and TreeMap is that TreeMap implements NavigableMap<K,V>, which provide the feature of ordered iteration
+
+
+
+----------------------
+RED-BLACK Tree
+	- Sefl Balancing Binay Search Tree
+	- Search , insertion & deletion take O(log n) times
+	- Red-Black Tree property
+		1. Each Node of tree either red or black
+		2. Root element of tree must be black
+		3. Leaf node of tree which don't have child node must be black.
+		4. both Child node of red node must be black
+		5. 
+		
+http://www.csanimated.com/animation.php?t=Red-black_tree	
